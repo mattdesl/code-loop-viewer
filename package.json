@@ -1,0 +1,28 @@
+{
+  "name": "code-loop-viewer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "license": "MIT",
+  "author": {
+    "name": "Matt DesLauriers",
+    "email": "dave.des@gmail.com",
+    "url": "https://github.com/mattdesl"
+  },
+  "dependencies": {
+    "canvas-sketch-util": "^1.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "canvas-sketch src/index.js --dir public --html src/index.html"
+  },
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mattdesl/code-loop-viewer.git"
+  },
+  "homepage": "https://github.com/mattdesl/code-loop-viewer",
+  "bugs": {
+    "url": "https://github.com/mattdesl/code-loop-viewer/issues"
+  }
+}
