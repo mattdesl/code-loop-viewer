@@ -1,0 +1,227 @@
+html {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: white;
+  overflow: hidden;
+}
+
+body {
+  position: relative;
+  max-width: 512px;
+  max-height: 384px;
+  background: white;
+  color: black;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 12px;
+  -webkit-text-size-adjust: 100%;
+}
+
+* {
+  -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+  -webkit-tap-highlight-color: rgba(0,0,0,0); /* prevent tap highlight color / shadow */
+}
+
+.loop {
+  height: 256px;
+  width: 256px;
+  margin: auto;
+  display: block;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.loader {
+  z-index: 2;
+}
+
+.loop > img, .loop > video {
+  /* box-shadow: 0 2px 12px -2px rgba(0, 0, 0, .15); */
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  transform: translateZ(0px);
+}
+
+.loop-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.text {
+  margin-top: 10px;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+input[type="text"] {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 12px;
+}
+
+.separator {
+  opacity: 0.25;
+  position: relative;
+  top: -1.5px;
+}
+
+.header {
+  margin-bottom: 10px;
+  font-size: 14px;
+  align-self: flex-start;
+}
+.header-title {
+  /* font-style: italic; */
+  display: block;
+  font-size: 12px;
+  font-weight: 100;
+  letter-spacing: 2.5px;
+  position: absolute;
+  margin: 0;
+  top: 0;
+  left: 0;
+  padding: 20px;
+}
+.header-byline {
+  display: block;
+  font-size: 10px;
+  font-weight: 100;
+  letter-spacing: 0.0px;
+  margin: 0;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 20px;
+}
+.header-byline a {
+  color: currentColor;
+  /* padding: 2.5px; */
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 600;
+}
+.header-byline a:active {
+  opacity: 0.5;
+}
+.no-touch .header-byline a:hover {
+  text-decoration: underline;
+}
+
+button {
+  background: transparent;
+  border: none;
+  border-radius: 0px;
+  cursor: pointer;
+  margin: 0;
+  color: black;
+  font-size: 14px;
+  text-decoration: none;
+  z-index: 1;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  opacity: 1;
+  outline: 0;
+}
+.prev-container, .next-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  margin: auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  width: 50px;
+  left: -10px;
+}
+.next-container {
+  right: -10px;
+  left: initial;
+}
+.prev, .next {
+  white-space: nowrap;
+  -webkit-touch-callout: none;
+  font-size: 20px;
+  font-weight: 100;
+  text-align: center;
+  letter-spacing: 2.5px;
+  transform: translateX(0px) rotate(-90deg);
+  transform-origin: 50% 50%;
+  padding: 20px;
+  background: black;
+  color: white;
+  width: 120px;
+  display: flex;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.no-touch .prev:hover, .no-touch .next:hover {
+  transform: translateX(5px) rotate(-90deg);
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.no-touch .next:hover {
+  transform: translateX(-5px) rotate(90deg);
+}
+.next {
+  transform: translateX(0px) rotate(90deg);
+}
+
+.count {
+  font-size: 20px;
+  font-weight: 100;
+  text-align: center;
+  letter-spacing: 2.5px;
+  z-index: 1;
+  position: relative;
+  top: 0px;
+  left: -4px;
+  transform: scale(0.5);
+}
+.count .current {
+  position: relative;
+  display: inline-block;
+  width: 25px;
+  top: -10px;
+  left: -2px;
+}
+.count .total {
+  position: relative;
+  display: inline-block;
+  width: 25px;
+  top: 10px;
+  left: 2px;
+}
+.count .div {
+  width: 1px;
+  height: 20px;
+  content: ' ';
+  display: inline-block;
+  background: currentColor;
+  transform: translateY(12.5px) rotate(25deg);
+  margin: 10px;
+}

@@ -10,11 +10,18 @@
     "url": "https://github.com/mattdesl"
   },
   "dependencies": {
-    "canvas-sketch-util": "^1.6.0"
+    "canvas-sketch-util": "^1.6.0",
+    "pad-left": "^2.1.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "canvas-sketch-cli": "^1.2.0",
+    "surge": "^0.20.1"
+  },
   "scripts": {
-    "start": "canvas-sketch src/index.js --dir public --html src/index.html"
+    "start": "canvas-sketch src/index.js --dir public --html src/index.html",
+    "build": "canvas-sketch src/index.js --build --dir public --html src/index.html",
+    "deploy": "npm run build && npm run deploy:upload",
+    "deploy:upload": "surge -p public -d loop-code.surge.sh"
   },
   "keywords": [],
   "repository": {
