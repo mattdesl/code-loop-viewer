@@ -1,5 +1,6 @@
 const { mod } = require('canvas-sketch-util/math');
 const padLeft = require('pad-left');
+const enableInlineVideo = require('iphone-inline-video');
 
 const loop = document.querySelector('.loop');
 const isMobile = /(Android|iOS|iPhone|iPod|iPad)/i.test(navigator.userAgent);
@@ -12,11 +13,10 @@ if (!isMobile) {
 
 const assets = [
   { name: '2018.07.27-15.19.39.mp4' },
-  { name: '2018.07.23-14.27.21.mp4' },
-  { name: '2018.07.23-14.33.08.mp4' },
-  { name: '2018.07.23-14.34.19.mp4' },
   { name: '2018.07.23-14.36.11.mp4' },
-  { name: '2018.07.23-14.40.31.mp4' },
+  { name: '2018.07.23-14.34.19.mp4' },
+  { name: '2018.07.23-14.27.21.mp4' },
+  // { name: '2018.07.23-14.40.31.mp4' },
   { name: '2018.10.11-17.55.01.mp4', background: '#F5F4F5' },
   { name: '2018.10.11-17.51.01.mp4', background: '#F5F4F5' },
   { name: '2018.10.11-17.57.09.mp4', background: '#F5F4F5' },
@@ -83,6 +83,8 @@ function createLoop (asset) {
   video.setAttribute('src', asset.url);
   video.setAttribute('loop', true);
   video.setAttribute('preload', 'auto');
+  video.setAttribute('muted', 'muted');
+  video.setAttribute('autoplay', true);
   video.setAttribute('playsinline', true);
   video.setAttribute('webkit-playsinline', true);
   video.style.visibility = 'hidden';
@@ -104,7 +106,9 @@ function createLoop (asset) {
       video.style.visibility = '';
     }, 100);
   };
-  video.addEventListener(event, load)
+  video.addEventListener(event, load);
+  video.load();
+  enableInlineVideo(video);
   return {
     video,
     attach: () => {
